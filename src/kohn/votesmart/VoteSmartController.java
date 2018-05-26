@@ -1,6 +1,7 @@
 package kohn.votesmart;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.text.JTextComponent;
 
@@ -11,7 +12,7 @@ import retrofit2.Response;
 public class VoteSmartController {
 	private VoteSmartView view;
 	private VoteSmartService service;
-	String api = "4621bd0bc679f84d6eee42c99c643e57";
+	private String api = "4621bd0bc679f84d6eee42c99c643e57";
 	
 	public VoteSmartController(VoteSmartView view, VoteSmartService service) {
 		this.view = view;
@@ -39,11 +40,16 @@ public class VoteSmartController {
 		
 		ArrayList<String>list = new ArrayList<String>();
 		StringBuilder sb = new StringBuilder();
-		feed.getStates()
-			.stream()
-			.forEach(e -> list.add(e.getStateProperties().getSenators()));
-		for(String state: list ) {
-			sb.append("\t").append(state);
+		//System.out.println(feed.getCandidate().size());
+		//list.add(feed.getCandidate().get(0).getCandidatesProps().getFirstName());
+//		feed.getCandidates()
+//			.stream()
+//			.forEach(e -> list.add(e.getCandidatesProps().getFirstName()+ e.getCandidatesProps().getLastName()));
+////		feed.getStates()
+//			.stream()
+//			.forEach(e -> list.add(e.getStateProperties().getSenators()));
+		for(String names: list ) {
+			sb.append("\t").append(names);
 		}
 		System.out.println(data);
 		data.setText(sb.toString());
@@ -51,6 +57,6 @@ public class VoteSmartController {
 	
 	public void requestStateData()
 	{
-		requestVoteSmartData(service.getData("State.getState", api, view.getStateID().getText()), view.getStateID());
+		//requestVoteSmartData(service.getData("Candidates.getByZip", api, view.getZipEntry()), view.getCandidatebyZip());
 	}
 }

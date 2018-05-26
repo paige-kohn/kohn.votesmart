@@ -1,23 +1,21 @@
 package kohn.votesmart;
 
-import java.sql.Date;
+
 
 public class VoteData {
+	
 	private String stateId;
 	private String year;
 	private VoteDataProperties stateProperties;
 	private VoteDataProperties votesProperties;
+	
+	
+	private CandidatesProperties candidatesProperties;
 
-	
-	public VoteData(String bills, String categories) {
-		votesProperties = new VoteDataProperties(bills, categories);
+	public VoteData(String firstName, String lastName, int zip) {
 	}
 	
-	
-	public VoteData(String stateName, String senators,
-			String reps, Date generalDate) {
-		stateProperties = new VoteDataProperties(stateName, senators, reps, generalDate);	
-	}
+
 	
 	public String getstateId() {
 		return stateId;
@@ -31,5 +29,9 @@ public class VoteData {
 	}
 	public VoteDataProperties getVotesProperties() {
 		return votesProperties;
+	}
+	
+	public CandidatesProperties getCandidatesProps() {
+		return candidatesProperties;
 	}
 }

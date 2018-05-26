@@ -1,43 +1,26 @@
 package kohn.votesmart;
 
-import java.util.List;
+
 
 public class VoteSmartModel {
-	private List<VoteData> states;
-	private List<VoteData> votes;
-	private List<VoteData> candidates;
-	private List<VoteData> district;
-	private List<VoteData> election;
+
+	private CandidateList candidateList;
 	
+	public VoteSmartModel(CandidateList candidateList) {
+		this.candidateList = candidateList;	
+	}
+
 	
-	public VoteSmartModel(List<VoteData> states, List<VoteData> votes, List<VoteData> candidates,
-	 List<VoteData> district, List<VoteData> election) {
-		this.states = states;
-		this.votes= votes;
-		this.candidates = candidates;
-		this.district = district;
-		this.election = election;
-		
+	public CandidateList getCandidateList() {
+		return candidateList;
 	}
 	
+@Override
+public String toString() {
+	StringBuilder sb = new StringBuilder();
+	sb.append(candidateList.toString());
+	return sb.toString();
+}
 	
-	public List<VoteData> getStates(){
-		return states;
-	}
 	
-	public List<VoteData> getVotes(){
-		return votes;
-	}
-	
-	public List<VoteData> getCandidates(){
-		return candidates;
-	}
-	
-	public List<VoteData> getDistrict(){
-		return district;
-	}
-	
-	public List<VoteData> getElection(){
-		return election;
-	}
 }
