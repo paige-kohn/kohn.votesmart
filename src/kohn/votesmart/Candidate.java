@@ -2,13 +2,13 @@ package kohn.votesmart;
 
 public class Candidate {
 
+	private String firstName;
+	private String lastName;
 	private String officeDistrictId;
 	private String officeStateId;
 	private String electionParties;
 	private String candidateId;
-	private String officeName;
-	private String firstName;
-	private String lastName;
+	private String officeName;	
 	private String electionYear;
 	private String electionDate;
 	private String electionStatus;

@@ -17,15 +17,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitTest {
 	public static void main(String [] args)throws IOException{
-
+	
 		Retrofit retrofit = new Retrofit.Builder()
-				.baseUrl("http://api.votesmart.org")				
+				.baseUrl("http://api.votesmart.org")	
 				.addConverterFactory(GsonConverterFactory.create())
 				.build();
 		
-		
+                
 		VoteSmartService service = retrofit.create(VoteSmartService.class);
-	
 		Call<VoteSmartModel> call = service.getData("Candidates.getByZip", "4621bd0bc679f84d6eee42c99c643e57", "&zip5=11230&zip4=3341");
 		
 		call.enqueue(new Callback<VoteSmartModel>() {
@@ -35,16 +34,13 @@ public class RetrofitTest {
 				
 				VoteSmartModel feed = response.body();
 				
-				System.out.println(feed.getCandidateList().toString());
+				System.out.println(feed.getCandidateList());
 				
 			}
 
 			@Override
-			public void onFailure(Call<VoteSmartModel> call, Throwable t) {
-				// TODO Auto-generated method stub
-				
-			}
-			
+			public void onFailure(Call<VoteSmartModel> call, Throwable t) {		
+			}			
 		});
 	}
 }
