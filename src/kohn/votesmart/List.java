@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class List
 {
-	    //private ArrayList<State> state;
 	    private State state;
 	    
 	    public List(State state) {

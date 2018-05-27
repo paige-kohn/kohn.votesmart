@@ -6,10 +6,12 @@ public class CandidateList {
 	
 	private GeneralInfo generalInfo;
 	private List<Candidate> candidate;
+	private String zipMessage;
 
-	public CandidateList( GeneralInfo generalInfo, List<Candidate> candidate) {
+	public CandidateList( GeneralInfo generalInfo, List<Candidate> candidate, String zipMessage) {
 		this.generalInfo = generalInfo;
 		this.candidate = candidate;
+		this.zipMessage = zipMessage;
 	}	
 
 	public GeneralInfo getGeneralInfo() {
@@ -19,12 +21,11 @@ public class CandidateList {
 	public List<Candidate> getCandidate() {
 		return candidate;
 	}
-
-	@Override
-	public String toString() {
-		return "\nCandidates: " + candidate + "\n";
-	}
 	
+	public String getZipMessage() {
+		return zipMessage;
+	}
+
 	
 	
 
@@ -99,14 +100,7 @@ public class CandidateList {
 				return electionStatus;
 			}
 
-			@Override
-			public String toString() {
-				StringBuilder sb = new StringBuilder();
-				sb.append("\n[").append(firstName).append(" ").append(lastName).
-				append("\t").append(officeName).append("\t").append(electionParties).
-				append(", Election Date: ").append(electionDate).append("]");
-				return sb.toString();
-			}
+		
 	}
 	 
 		public class GeneralInfo {
@@ -129,9 +123,6 @@ public class CandidateList {
 				return linkBack;
 			}
 
-			@Override
-			public String toString() {
-				return  title;
-			}
+		
 		}
 }

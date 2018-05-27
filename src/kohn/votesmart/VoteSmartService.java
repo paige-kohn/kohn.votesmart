@@ -14,5 +14,10 @@ public interface VoteSmartService {
 			@Path("type") String callType, 
 			@Query("key") String APIkey,
 			@Query("typeID") String callTypeID);
+	
+	@GET("/Candidates.getByZip?/&o=JSON")
+	Call<VoteSmartModel> getCandidatesbyZipCode( 
+			@Query("key") String APIkey,
+			@Query("zipCode") String zipCode);
 
 }

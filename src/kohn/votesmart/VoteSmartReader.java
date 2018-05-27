@@ -22,6 +22,6 @@ public class VoteSmartReader {
 					new FileReader(new File("src/kohn/votesmart/Candidates.getByZip.json")));
 		
 		 VoteSmartModel feed = gson.fromJson(in, VoteSmartModel.class);
-		   System.out.println(feed.getCandidateList().getCandidate());
+		   System.out.println(feed.getCandidateList().getCandidate().get(1).getLastName());
 	}
 }

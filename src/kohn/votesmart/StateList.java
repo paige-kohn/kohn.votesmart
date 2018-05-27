@@ -3,56 +3,85 @@ package kohn.votesmart;
 import java.util.List;
 
 public class StateList {
+
+	private GeneralInfo generalInfo;
+	private State list;
 	
-	 private GeneralInfo generalInfo;
-	 private State list;
 	
-	 
-	 public StateList(State list, GeneralInfo generalInfo) {
-		 this.list = list;
-		 this.generalInfo = generalInfo;
-	 }
-	 public StateList() {
-	 }
-	 
-	    public GeneralInfo getGeneralInfo ()
-	    {
-	        return generalInfo;
-	    }
-	    public State getList ()
-	    {
-	        return list;
-	    }
+	public StateList(State list, GeneralInfo generalInfo) {
+		this.list = list;
+		this.generalInfo = generalInfo;
+	}
+
+	public GeneralInfo getGeneralInfo() {
+		return generalInfo;
+	}
+
+	public State getList() {
+		return list;
+	}
+
+	@Override
+	public String toString() {
+		return "[" + list + "]";
+	}
+}
+
+class GeneralInfo {
+	private String title;
+	private String linkBack;
+
+	public String getTitle() {
+		return title;
+	}
+
+	public String getLinkBack() {
+		return linkBack;
+	}
+
+	@Override
+	public String toString() {
+		return " [title = " + title + ", linkBack = " + linkBack + "]";
+	}
+	public class List
+	{
+		    private State[] state;
+		    
+		    public List(State[] state) {
+		    	this.state = state;
+		    }
+		    public State[] getState(){
+		        return this.state;
+		    }
+		
+
 
 	    @Override
 	    public String toString()
 	    {
-	        return "["+list+"]";
+	        return "[state = "+state+"]";
 	    }
 	}
- class GeneralInfo
-{
-    private String title;
-    private String linkBack;
-
-    
-    public String getTitle ()
-    {
-        return title;
-    }
-
-
-    public String getLinkBack ()
-    {
-        return linkBack;
-    }
-
-  
-    @Override
-    public String toString()
-    {
-        return " [title = "+title+", linkBack = "+linkBack+"]";
-    }
-
+	public class State {
 		
+		private String stateId;
+		private String name;
+
+		public String getStateId() {
+			return stateId;
+		}
+
+
+		public String getName() {
+			return name;
+		}
+
+
+	@Override
+	public String toString() {
+		return "[ State Name = " + name + "]";
+	}
+
+	}
+
 }
