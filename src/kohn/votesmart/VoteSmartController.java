@@ -38,6 +38,7 @@ public class VoteSmartController {
 	private void showData(JTextComponent data, VoteSmartModel feed) {
 		ArrayList<String> voteSmartFeed = new ArrayList<>();
 		StringBuilder sb = new StringBuilder();
+			
 			feed.getCandidateList()
 				.getCandidate()
 				.stream()
@@ -49,8 +50,16 @@ public class VoteSmartController {
 		data.setText(sb.toString());
 	}
 	
-	public void requestCandidateData()
-	{
+	public void requestCandidateData(){
 		requestVoteSmartData(service.getCandidatesbyZipCode(api, view.getZip5(), view.getZip4()), view.getCandidatebyZip());
+	}
+	
+	public void requestElectionData() {
+		
+		requestVoteSmartData(service.getElectionByZip(api, view.getZip5(), view.getZip4()), view.getResults());		
+	}
+	
+	public void requestBillsData() {
+		requestVoteSmartData(service.getBillsByState(api, view.getYear(), view.getStateID()), view.getResults());
 	}
 }
