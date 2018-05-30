@@ -145,7 +145,7 @@ public class VoteSmartView extends JFrame implements ActionListener {
 		Border border = BorderFactory.createEmptyBorder(10, 40, 20, 40);
 		entries.add(zipLabel);
 		entries.add(zip5Field);
-		
+		entries.add(new JLabel(""));
 		entries.add(resultButton);
 		entries.setBorder(border);
 		results.setBorder(border);		
@@ -164,7 +164,7 @@ public class VoteSmartView extends JFrame implements ActionListener {
 		stateIDField = new JTextField();
 		stateIDLabel = new JLabel("Enter the State ID: ");
 		yearField = new JTextField();
-		yearLabel = new JLabel("Enter a year: ");
+		yearLabel = new JLabel(" Enter a year: ");
 		resultButton = new JButton("OK");
 		
 		Border buttonBorder = BorderFactory.createEtchedBorder(Color.white, (new Color(209, 142, 13)));
@@ -188,7 +188,7 @@ public class VoteSmartView extends JFrame implements ActionListener {
 		entries.add(stateIDField);
 		entries.add(yearLabel);
 		entries.add(yearField);
-
+		entries.add(new JLabel(""));
 		entries.add(resultButton);
 		entries.setBackground((new Color(128, 128, 128)));		
 
@@ -225,14 +225,14 @@ public class VoteSmartView extends JFrame implements ActionListener {
 		entries.add(zip5Field);
 		entries.add(new JLabel("-"));
 		entries.add(zip4Field);
-		entries.add(new JLabel("   "));
+		entries.add(new JLabel(" "));
 		entries.add(resultButton);
 		results.add(scrollPane);
 		
                                    
 		resultButton.addActionListener(this);
 		
-		Border buttonBorder = BorderFactory.createEtchedBorder(Color.WHITE, Color.gray);
+		Border buttonBorder = BorderFactory.createEtchedBorder(Color.WHITE, Color.RED);
 		resultButton.setBorderPainted(true);
 		resultButton.setBorder(buttonBorder);	
 		Border border = BorderFactory.createEmptyBorder(12, 12, 12, 12);
