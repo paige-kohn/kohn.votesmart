@@ -1,14 +1,15 @@
 package kohn.votesmart;
 
-import java.util.List;
+import java.util.ArrayList;
+
 
 public class StateList {
 
 	private GeneralInfo generalInfo;
-	private State list;
+	private List list;
 	
 	
-	public StateList(State list, GeneralInfo generalInfo) {
+	public StateList(List list, GeneralInfo generalInfo) {
 		this.list = list;
 		this.generalInfo = generalInfo;
 	}
@@ -17,17 +18,55 @@ public class StateList {
 		return generalInfo;
 	}
 
-	public State getList() {
+	public List getList() {
 		return list;
 	}
 
-	@Override
-	public String toString() {
-		return "[" + list + "]";
-	}
+
 }
 
-class GeneralInfo {
+	
+class List
+	{
+		    private ArrayList<State> state;
+		    
+		    public List(ArrayList<State> state) {
+		    	this.state = state;
+		    }
+		    public ArrayList<State> getState(){
+		        return this.state;
+		    }
+		    @Override
+		 public String toString() {
+		    	StringBuilder sb = new StringBuilder();
+		    	sb.append(this.state);
+		    	return sb.toString();
+		    }
+
+	}
+ class State {
+		
+		private String stateId;
+		private String name;
+
+		public String getStateId() {
+			return stateId;
+		}
+
+		public String getName() {
+			return name;
+		}
+		
+		@Override
+		public String toString() {
+			StringBuilder sb = new StringBuilder();
+			sb.append("\n").append(this.stateId).append(" - ").append(this.name);
+			return sb.toString();
+		}
+	}
+	
+
+ class GeneralInfo {
 	private String title;
 	private String linkBack;
 
@@ -38,50 +77,5 @@ class GeneralInfo {
 	public String getLinkBack() {
 		return linkBack;
 	}
-
-	@Override
-	public String toString() {
-		return " [title = " + title + ", linkBack = " + linkBack + "]";
-	}
-	public class List
-	{
-		    private State[] state;
-		    
-		    public List(State[] state) {
-		    	this.state = state;
-		    }
-		    public State[] getState(){
-		        return this.state;
-		    }
-		
-
-
-	    @Override
-	    public String toString()
-	    {
-	        return "[state = "+state+"]";
-	    }
-	}
-	public class State {
-		
-		private String stateId;
-		private String name;
-
-		public String getStateId() {
-			return stateId;
-		}
-
-
-		public String getName() {
-			return name;
-		}
-
-
-	@Override
-	public String toString() {
-		return "[ State Name = " + name + "]";
-	}
-
-	}
-
+	
 }

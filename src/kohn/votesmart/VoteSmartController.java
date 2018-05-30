@@ -18,17 +18,16 @@ public class VoteSmartController {
 		this.view = view;
 		this.service = service;
 	}
-	
+
 	
 	private void requestVoteSmartData(Call<VoteSmartModel> call, JTextComponent data) {
-		call.enqueue(new Callback<VoteSmartModel>() {
-
+		 call.enqueue(new Callback<VoteSmartModel>() {
 			@Override
-			public void onResponse(Call<VoteSmartModel> call, Response<VoteSmartModel> response) {
+			public void onResponse(Call<VoteSmartModel> call, 
+					Response<VoteSmartModel> response) {
 				VoteSmartModel feed = response.body();
 				showData(data, feed);
 			}
-
 			@Override
 			public void onFailure(Call<VoteSmartModel> call, Throwable t) {
 				t.printStackTrace();
@@ -37,26 +36,21 @@ public class VoteSmartController {
 	}
 	
 	private void showData(JTextComponent data, VoteSmartModel feed) {
-		
-		ArrayList<String>list = new ArrayList<String>();
+		ArrayList<String> voteSmartFeed = new ArrayList<>();
 		StringBuilder sb = new StringBuilder();
-		//System.out.println(feed.getCandidate().size());
-		//list.add(feed.getCandidate().get(0).getCandidatesProps().getFirstName());
-//		feed.getCandidates()
-//			.stream()
-//			.forEach(e -> list.add(e.getCandidatesProps().getFirstName()+ e.getCandidatesProps().getLastName()));
-////		feed.getStates()
-//			.stream()
-//			.forEach(e -> list.add(e.getStateProperties().getSenators()));
-		for(String names: list ) {
-			sb.append("\t").append(names);
-		}
-		System.out.println(data);
+			feed.getCandidateList()
+				.getCandidate()
+				.stream()
+				.forEach(e -> voteSmartFeed.add(e.toString()));
+			int size = voteSmartFeed.size();
+			for(int i =0; i<size; i++) {
+				sb.append("\n").append(voteSmartFeed.get(i));
+			}
 		data.setText(sb.toString());
 	}
 	
-	public void requestStateData()
+	public void requestCandidateData()
 	{
-		//requestVoteSmartData(service.getData("Candidates.getByZip", api, view.getZipEntry()), view.getCandidatebyZip());
+		requestVoteSmartData(service.getCandidatesbyZipCode(api, view.getZip5(), view.getZip4()), view.getCandidatebyZip());
 	}
 }

@@ -5,26 +5,29 @@ package kohn.votesmart;
 public class VoteSmartModel {
 
 	private CandidateList candidateList;
-	//private List stateList;
+	private StateList stateList;
+	private Bills bills;
 	
-	public VoteSmartModel(CandidateList candidateList) {
+	
+	public VoteSmartModel(CandidateList candidateList, StateList stateList, Bills bills) {
 		this.candidateList = candidateList;	
-		
+		this.stateList = stateList;
+		this.bills = bills;
 	}
 
 	
 	public CandidateList getCandidateList() {
 		return candidateList;
 	}
-//	public List getStateList() {
-//		return stateList;
-//	}
-//@Override
-//public String toString() {
-//	StringBuilder sb = new StringBuilder();
-//	sb.append(candidateList.toString()).append("\n").append(stateList.toString());
-//	return sb.toString();
-//}
+	
+	public StateList getStateList() {
+		return stateList;
+	}
+	
+	public Bills getBills() {
+		return this.bills;
+	}
+	
 	
 	
 }

@@ -99,30 +99,18 @@ public class CandidateList {
 			public String getElectionStatus() {
 				return electionStatus;
 			}
-
-		
+			@Override
+			public String toString() {
+				StringBuilder sb = new StringBuilder();
+				sb.append("CANDIDATE ID: ").append(candidateId);
+				sb.append("\n\t").append(lastName).append(", ").append(firstName);
+				sb.append("  PARTY: ").append(electionParties);
+				sb.append("\n").append(officeName).append("\tELECTION DATE: ").append(electionDate).append("\n\n");
+				return sb.toString();
+			}
 	}
 	 
-		public class GeneralInfo {
-			private String title;
-			private String linkBack;
-			
-			
+	
 
-			public GeneralInfo(String title, String linkBack) {
-				super();
-				this.title = title;
-				this.linkBack = linkBack;
-			}
-
-			public String getTitle() {
-				return title;
-			}
-
-			public String getLinkBack() {
-				return linkBack;
-			}
-
-		
-		}
+	 
 }
