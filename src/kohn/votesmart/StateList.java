@@ -26,7 +26,7 @@ public class StateList {
 }
 
 	
-class List
+	class List
 	{
 		    private ArrayList<State> state;
 		    

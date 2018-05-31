@@ -7,12 +7,15 @@ public class VoteSmartModel {
 	private CandidateList candidateList;
 	private StateList stateList;
 	private Bills bills;
+	private Elections elections;
 	
 	
-	public VoteSmartModel(CandidateList candidateList, StateList stateList, Bills bills) {
+	public VoteSmartModel(CandidateList candidateList, StateList stateList, 
+			Bills bills, Elections elections) {
 		this.candidateList = candidateList;	
 		this.stateList = stateList;
 		this.bills = bills;
+		this.elections = elections;
 	}
 
 	
@@ -25,9 +28,11 @@ public class VoteSmartModel {
 	}
 	
 	public Bills getBills() {
-		return this.bills;
+		return bills;
 	}
 	
-	
+	public Elections getElections() {
+		return elections;
+	}
 	
 }

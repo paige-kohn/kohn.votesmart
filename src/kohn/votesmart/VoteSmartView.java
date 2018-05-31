@@ -62,7 +62,8 @@ public class VoteSmartView extends JFrame implements ActionListener {
 	private JTextArea displayResults;
 
 	private JButton resultButton;
-
+	private JButton electionResults;
+	
 	public VoteSmartView() {
 		
 		setLocation(240, 80);
@@ -96,9 +97,9 @@ public class VoteSmartView extends JFrame implements ActionListener {
 				dialog.setVisible(true);
 			    dialog.setLocation(340, 120);
 			}
-			});
+		});
+		
 		searchBills.addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JDialog dialog = displayBillsByState() ;
@@ -115,6 +116,7 @@ public class VoteSmartView extends JFrame implements ActionListener {
 				dialog.setSize(new Dimension(800,500));
 				dialog.setVisible(true);
 			    dialog.setLocation(340, 120);
+			    
 			}			
 		});		
 	}
@@ -127,14 +129,14 @@ public class VoteSmartView extends JFrame implements ActionListener {
 		zipLabel = new JLabel("Enter your zip code: ");		
 		zip5Field = new JTextField(SwingConstants.LEFT);	
 		zip4Field = new JTextField(SwingConstants.RIGHT);
-		resultButton = new JButton("OK");
+		electionResults = new JButton("OK");
 		
 		Border buttonBorder = BorderFactory.createEtchedBorder(Color.BLACK, Color.gray);
 		
-		resultButton.setBorderPainted(true);
-		resultButton.setBorder(buttonBorder);
-		resultButton.setPreferredSize(new Dimension(20,31));
-		resultButton.addActionListener(this);
+		electionResults.setBorderPainted(true);
+		electionResults.setBorder(buttonBorder);
+		electionResults.setPreferredSize(new Dimension(20,31));
+		electionResults.addActionListener(this);
 
 		displayResults = new JTextArea();
 		displayResults.setWrapStyleWord(true);
@@ -146,7 +148,7 @@ public class VoteSmartView extends JFrame implements ActionListener {
 		entries.add(zipLabel);
 		entries.add(zip5Field);
 		entries.add(new JLabel(""));
-		entries.add(resultButton);
+		entries.add(electionResults);
 		entries.setBorder(border);
 		results.setBorder(border);		
 		entries.setBackground((new Color(68, 113, 181)));		
@@ -198,6 +200,7 @@ public class VoteSmartView extends JFrame implements ActionListener {
 		return billsPanel;
 
 	}
+	
 	public JDialog displayCandidatesbyZip() {
 		JDialog candidatePanel = new JDialog();
 		JPanel entries = new JPanel(new GridLayout(1,0));
@@ -276,6 +279,7 @@ public class VoteSmartView extends JFrame implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
+	
 		Retrofit retrofit = new Retrofit.Builder()
 				.baseUrl("http://api.votesmart.org")
 				.addConverterFactory(GsonConverterFactory.create())
@@ -283,7 +287,13 @@ public class VoteSmartView extends JFrame implements ActionListener {
 		VoteSmartService service = retrofit.create(VoteSmartService.class);
 		
 		VoteSmartController controller = new VoteSmartController(this, service);
-		controller.requestCandidateData();
+		if(e.getSource().equals(getCandidatebyZip())) {
+			controller.requestCandidateData();
+		}
+		if(e.getSource().equals(electionResults)) {
+			controller.requestElectionData();
+		}
+		
 	}
 	
 	
