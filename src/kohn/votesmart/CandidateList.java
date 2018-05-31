@@ -23,10 +23,8 @@ public class CandidateList {
 	
 	 public class Candidate {
 	        
-			public String firstName;
-			
-
-			public String lastName;
+			private String firstName;
+			private String lastName;
 			public String officeDistrictId;
 			public String officeStateId;
 			public String electionParties;

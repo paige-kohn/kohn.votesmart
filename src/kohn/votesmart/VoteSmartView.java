@@ -50,7 +50,7 @@ public class VoteSmartView extends JFrame implements ActionListener {
 	public VoteSmartView() {
 		
 		setLocation(240, 80);
-		setSize(800, 500);
+		setSize(600, 420);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				
 		JPanel menu = new JPanel();
@@ -58,10 +58,11 @@ public class VoteSmartView extends JFrame implements ActionListener {
 	    layout.setHgap(30);
 	    layout.setVgap(30);
 	    menu.setLayout(layout);
-		JButton searchCandidates = new JButton("Search Local Candidates by Zip Code");
+		JButton searchCandidates = new JButton("Search Local Candidates By Zip Code");
 		JButton searchBills = new JButton("Search most recent bills passed");
 		JButton searchElections = new JButton("Search upcoming elections by Zip Code");
 		JButton searchOfficials = new JButton("Lookup officials by State");
+		searchCandidates.setFont(new Font("", Font.PLAIN, 10));
 		menu.add(searchCandidates);
 		menu.add(searchBills);
 		menu.add(searchElections);
