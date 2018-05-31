@@ -1,14 +1,12 @@
 package kohn.votesmart;
 
-
-
+import java.util.List;
 public class VoteSmartModel {
 
 	private CandidateList candidateList;
 	private StateList stateList;
 	private Bills bills;
 	private Elections elections;
-	
 	
 	public VoteSmartModel(CandidateList candidateList, StateList stateList, 
 			Bills bills, Elections elections) {

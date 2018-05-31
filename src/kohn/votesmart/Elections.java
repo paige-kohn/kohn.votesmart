@@ -1,18 +1,18 @@
 package kohn.votesmart;
 
-import java.util.ArrayList;
+import org.votesmart.data.Elections.ElectionStage.Stage;
 
 public class Elections {
 
-	private String zipMessage;
-	private ArrayList<Election> election;
+	private Election election;
 	private GeneralInfo generalInfo;
+	private String zipMessage;
 
-	public Elections(ArrayList<Election> election) {
+	public Elections(Election election) {
 		this.election = election;
 	}
 
-	public ArrayList<Election> getElection() {
+	public Election getElection() {
 		return election;
 	}
 
@@ -75,55 +75,11 @@ public class Elections {
 		public String toString() {
 			StringBuilder sb = new StringBuilder();
 			sb.append("\n").append(name).append(" ").append(electionId);
-			sb.append("\n").append(stage);
 			return sb.toString();
 		}
 	}
 
-	public class Stage {
 
-		private String stageId;
-		private String electionElectionstageId;
-		private String name;
-		private String stateId;
-		private String electionDate;
 
-		public Stage(String stageId, String electionElectionstageId, String name, String stateId, String electionDate,
-				String filingDeadline, String npatMailed) {
-			this.stageId = stageId;
-			this.electionElectionstageId = electionElectionstageId;
-			this.name = name;
-			this.stateId = stateId;
-			this.electionDate = electionDate;
-
-		}
-
-		public String getStageId() {
-			return stageId;
-		}
-
-		public String getElectionElectionstageId() {
-			return electionElectionstageId;
-		}
-
-		public String getName() {
-			return name;
-		}
-
-		public String getStateId() {
-			return stateId;
-		}
-
-		public String getElectionDate() {
-			return electionDate;
-		}
-
-		@Override
-		public String toString() {
-			return "Stage [stageId=" + stageId + ", electionElectionstageId=" + electionElectionstageId + ", name="
-					+ name + ", stateId=" + stateId + ", electionDate=" + electionDate + "]";
-		}
-
-	}
 
 }

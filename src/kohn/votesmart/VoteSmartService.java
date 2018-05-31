@@ -1,14 +1,10 @@
 package kohn.votesmart;
 
-
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface VoteSmartService {
-	//http://api.votesmart.org/State.getState?key=4621bd0bc679f84d6eee42c99c643e57&stateId=NY&o=JSON
-	//http://api.votesmart.org/{type}?key=<your_key>&candidateId=9490
 
 	
 	@GET("/Candidates.getByZip?/&o=JSON")
@@ -39,5 +35,11 @@ public interface VoteSmartService {
 			@Query("key") String APIkey,
 			@Query("zip5") String zip5,
 			@Query("zip4") String zip4);
+
+	@GET("/Officials.getStatewide?/&o=JSON")
+	Call<VoteSmartModel> getStateOfficials(
+			@Query("key") String APIkey,
+			@Query("stateId") String stateId);
+
 }
 
