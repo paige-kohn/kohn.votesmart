@@ -12,7 +12,6 @@ import retrofit2.Response;
 public class VoteSmartController {
 	private VoteSmartView view;
 	private VoteSmartService service;
-	private String api = "4621bd0bc679f84d6eee42c99c643e57";
 	
 	public VoteSmartController(VoteSmartView view, VoteSmartService service) {
 		this.view = view;
@@ -98,19 +97,18 @@ public class VoteSmartController {
 
 	
 	public void requestCandidateData(){
-		requestVoteSmartData(service.getCandidatesbyZipCode(api, view.getZip5(), view.getZip4()), view.getCandidatebyZip(), "1");
+		requestVoteSmartData(service.getCandidatesbyZipCode(view.getZip5(), view.getZip4()), view.getResults(), "1");
 	}
 	
 	public void requestElectionData() {		
-		requestVoteSmartData(service.getElectionByZip(api, view.getZip5(), view.getZip4()), view.getResults(),"2");		
-		
+		requestVoteSmartData(service.getElectionByZip(view.getZip5(), view.getZip4()), view.getResults(),"2");				
 	}
 	
 	public void requestBillsData() {
-		requestVoteSmartData(service.getBillsByState(api, view.getYear(), view.getStateID()), view.getResults(), "3");
+		requestVoteSmartData(service.getBillsByState(view.getYear(), view.getStateID()), view.getResults(), "3");
 	}
 	
 	public void requestStateOfficialsData() {
-		requestVoteSmartData(service.getStateOfficials(api, view.getStateID()), view.getResults(),"4");
+		requestVoteSmartData(service.getStateOfficials(view.getStateID()), view.getResults(),"4");
 	}
 }

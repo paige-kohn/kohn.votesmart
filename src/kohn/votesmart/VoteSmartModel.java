@@ -1,6 +1,5 @@
 package kohn.votesmart;
 
-import java.util.List;
 public class VoteSmartModel {
 
 	private CandidateList candidateList;

@@ -2,6 +2,8 @@ package kohn.votesmart;
 
 import java.util.ArrayList;
 
+import kohn.votesmart.InternalList.State.GeneralInfo;
+
 public class Bills {
 	
 	private ArrayList<Bill> bill;
@@ -14,16 +16,14 @@ public class Bills {
 	public ArrayList<Bill> getBill() {
 		return bill;
 	}	
-	   public GeneralInfo getGeneralInfo ()
-	    {
-	        return generalInfo;
-	    }
+
+	public GeneralInfo getGeneralInfo() {
+		return generalInfo;
+	}
 
 	@Override
 	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		sb.append("\n").append(this.bill);
-		return sb.toString();
+		return "\n" + this.bill;
 
 	}
 
@@ -57,15 +57,9 @@ public class Bills {
 		}
 
 		@Override
-		public String toString() {
-			StringBuilder sb = new StringBuilder();
-			sb.append("\n").append("Bill No. ").append(this.billNumber).append(", ").append(this.title);
-
-			return sb.toString();
+		public String toString() {			
+			return	"\n" +"Bill No. " +this.billNumber+", "+this.title;			 
 		}
-
-		
-
 	}
 
 }

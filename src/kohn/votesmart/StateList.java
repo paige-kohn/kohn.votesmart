@@ -2,14 +2,14 @@ package kohn.votesmart;
 
 import java.util.ArrayList;
 
+import kohn.votesmart.InternalList.State.GeneralInfo;
 
 public class StateList {
 
 	private GeneralInfo generalInfo;
-	private List list;
-	
-	
-	public StateList(List list, GeneralInfo generalInfo) {
+	private InternalList list;
+
+	public StateList(InternalList list, GeneralInfo generalInfo) {
 		this.list = list;
 		this.generalInfo = generalInfo;
 	}
@@ -18,34 +18,26 @@ public class StateList {
 		return generalInfo;
 	}
 
-	public List getList() {
+	public InternalList getList() {
 		return list;
 	}
 
-
 }
 
-	
-	class List
-	{
-		    private ArrayList<State> state;
-		    
-		    public List(ArrayList<State> state) {
-		    	this.state = state;
-		    }
-		    public ArrayList<State> getState(){
-		        return this.state;
-		    }
-		    @Override
-		 public String toString() {
-		    	StringBuilder sb = new StringBuilder();
-		    	sb.append(this.state);
-		    	return sb.toString();
-		    }
+class InternalList {
+	private ArrayList<State> state;
 
+	public InternalList(ArrayList<State> state) {
+		this.state = state;
 	}
- class State {
-		
+
+	public ArrayList<State> getState() {
+		return this.state;
+	}
+
+
+	public class State {
+
 		private String stateId;
 		private String name;
 
@@ -56,26 +48,25 @@ public class StateList {
 		public String getName() {
 			return name;
 		}
-		
+
 		@Override
 		public String toString() {
-			StringBuilder sb = new StringBuilder();
-			sb.append("\n").append(this.stateId).append(" - ").append(this.name);
-			return sb.toString();
+			return
+			"\n"+ stateId +" - "+ name;
+		}
+
+		public class GeneralInfo {
+			private String title;
+			private String linkBack;
+
+			public String getTitle() {
+				return title;
+			}
+
+			public String getLinkBack() {
+				return linkBack;
+			}
+
 		}
 	}
-	
-
- class GeneralInfo {
-	private String title;
-	private String linkBack;
-
-	public String getTitle() {
-		return title;
-	}
-
-	public String getLinkBack() {
-		return linkBack;
-	}
-	
 }

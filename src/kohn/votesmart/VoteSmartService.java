@@ -6,39 +6,34 @@ import retrofit2.http.Query;
 
 public interface VoteSmartService {
 
+	static final String APIKEY = "4621bd0bc679f84d6eee42c99c643e57";
 	
-	@GET("/Candidates.getByZip?/&o=JSON")
+	@GET("/Candidates.getByZip?/&o=JSON&key=" + APIKEY)
 	Call<VoteSmartModel> getCandidatesbyZipCode( 
-			@Query("key") String APIkey,
 			@Query("zip5") String zip5,
 			@Query("zip4") String zip4);
 	
 
-	@GET("/State.getStateIDs?/&o=JSON")
-	Call<VoteSmartModel> getStateIDs(
-			@Query("key") String APIkey);
+	@GET("/State.getStateIDs?/&o=JSON&key=" + APIKEY)
+	Call<VoteSmartModel> getStateIDs();
 	
 	
-	@GET("/Votes.getBillsByYearState?/&o=JSON")
-	Call<VoteSmartModel> getBillsByState(
-			@Query("key") String APIkey,
+	@GET("/Votes.getBillsByYearState?/&o=JSON&key=" + APIKEY)
+	Call<VoteSmartModel> getBillsByState(			
 			@Query("year") String year,
 			@Query("stateId") String stateId);
 	
-	@GET("/Votes.getBillsByStateRecent?&o=JSON")
+	@GET("/Votes.getBillsByStateRecent?&o=JSON&key=" + APIKEY)
 	Call<VoteSmartModel> getRecentBills(
-			@Query("key") String APIkey,
 			@Query("amount") String amount);
 	
-	@GET("/Election.getElectionByZip?/&o=JSON")
+	@GET("/Election.getElectionByZip?/&o=JSON&key=" + APIKEY)
 	Call<VoteSmartModel> getElectionByZip(
-			@Query("key") String APIkey,
 			@Query("zip5") String zip5,
 			@Query("zip4") String zip4);
 
-	@GET("/Officials.getStatewide?/&o=JSON")
+	@GET("/Officials.getStatewide?/&o=JSON&key=" + APIKEY)
 	Call<VoteSmartModel> getStateOfficials(
-			@Query("key") String APIkey,
 			@Query("stateId") String stateId);
 
 }

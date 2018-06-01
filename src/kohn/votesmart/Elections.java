@@ -2,6 +2,8 @@ package kohn.votesmart;
 
 import org.votesmart.data.Elections.ElectionStage.Stage;
 
+import kohn.votesmart.InternalList.State.GeneralInfo;
+
 public class Elections {
 
 	private Election election;
@@ -39,8 +41,8 @@ public class Elections {
 		private String special;
 		private Stage stage;
 
-		public Election(String electionYear, String stateId, String name, 
-				String electionId, String special, Stage stage) {
+		public Election(String electionYear, String stateId, String name, String electionId, String special,
+				Stage stage) {
 			this.electionYear = electionYear;
 			this.stateId = stateId;
 			this.name = name;
@@ -68,18 +70,15 @@ public class Elections {
 		public String getSpecial() {
 			return special;
 		}
+
 		public Stage getStage() {
 			return stage;
 		}
+
 		@Override
 		public String toString() {
-			StringBuilder sb = new StringBuilder();
-			sb.append("\n").append(name).append(" ").append(electionId);
-			return sb.toString();
+			return 
+			"\n" + name +" " +electionId;
 		}
 	}
-
-
-
-
 }
