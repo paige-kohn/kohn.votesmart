@@ -24,7 +24,7 @@ public class RetrofitTest {
 	public static void getCandidatebyZipCode(String zip5, String zip4, Retrofit retrofit, VoteSmartService service ) {
 		
 		
-		Call<VoteSmartModel> call = service.getCandidatesbyZipCode("4621bd0bc679f84d6eee42c99c643e57", zip5, zip4);
+		Call<VoteSmartModel> call = service.getCandidatesbyZipCode(zip5, zip4);
 		
 		call.enqueue(new Callback<VoteSmartModel>() {
 
@@ -45,7 +45,7 @@ public class RetrofitTest {
 	}
 	
 	public static void  getStateIDs(Retrofit retrofit, VoteSmartService service ) {
-		Call<VoteSmartModel> call = service.getStateIDs("4621bd0bc679f84d6eee42c99c643e57");
+		Call<VoteSmartModel> call = service.getStateIDs();
 		call.enqueue(new Callback<VoteSmartModel>(){
 
 			@Override
@@ -65,7 +65,7 @@ public class RetrofitTest {
 	
 	public static void  getBillsByState(Retrofit retrofit, VoteSmartService service, String year, String stateId) {
 		//Call<VoteSmartModel> call = service.getBillsByState("4621bd0bc679f84d6eee42c99c643e57", year, stateId);
-		Call<VoteSmartModel> call = service.getRecentBills("4621bd0bc679f84d6eee42c99c643e57", "40");
+		Call<VoteSmartModel> call = service.getRecentBills("40");
 
 		call.enqueue(new Callback<VoteSmartModel>(){
 
